@@ -4,6 +4,24 @@ import { shallow, mount } from 'enzyme';
 import Videos from './Videos';
 import { VideoList, VideoDetail } from '../components';
 
+import VideoService from '../services/Video';
+
+jest.mock('../services/Video', () => jest.fn().mockImplementation((cb) => ({
+	then: jest.fn()
+})));
+
+describe('when setting up the videos page for the first time', () => {
+	let videosComponent;
+
+	beforeAll(() => {
+		videosComponent = shallow(<Videos />);
+	});
+
+	it('should fetch the videos', () => {
+		expect(VideoService).toHaveBeenCalled();
+	});
+});
+
 describe('when displaying a videos page', () => {
 	let videosComponent;
 

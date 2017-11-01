@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 
 import { VideoList, VideoDetail } from '../components';
 
+import VideoService from '../services/Video';
+
 class Videos extends Component {
   state = {
+    items: [],
     detailView: null
+  }
+
+  componentDidMount() {    
+    VideoService().then(data => this.setState({ items: data.items }));
   }
 
   handleDetailVideoLoad = detailView => this.setState({ detailView });
@@ -12,12 +19,13 @@ class Videos extends Component {
   handleVideoListLoad = () => this.setState({ detailView: null });
 
   render() {
-    const { detailView } = this.state;
+    const { items, detailView } = this.state;
 
     return (
       <section className="videos">
         {!detailView ?
           <VideoList
+            items={items}
             onLoadDetailView={this.handleDetailVideoLoad}
           />
           :

@@ -2,30 +2,14 @@ import React, { Component } from 'react';
 
 import { VideoItem } from '../../VideoList';
 
-import VideoService from '../../../services/Video';
-
 class VideoList extends Component {
-  state = {
-    items: [],
-    resultsPerPage: 0,
-    totalResults: 0,
-    detailView: null
-  }
-
-  componentDidMount() {    
-    VideoService().then(data => {
-      const { items, pageInfo: { resultsPerPage, totalResults } } = data;
-      this.setState({ items, resultsPerPage, totalResults });
-    });
-  }
-
   handleVideoClick(evt, video) {
     evt.preventDefault();
     this.props.onLoadDetailView(video);
   }
 
   render() {
-    const { items } = this.state;
+    const { items } = this.props;
 
     return (
       items.length ?
