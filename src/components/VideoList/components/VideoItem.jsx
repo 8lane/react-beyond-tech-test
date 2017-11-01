@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PublishedDate from '../../PublishedDate/PublishedDate';
+
 const VideoItem = ({
   title,
   publishedAt,
@@ -9,10 +11,10 @@ const VideoItem = ({
 }) => {
   return (
     <li>
-      <a className="video-item__link" href="#" onClick={onClick}>
+      <a className="video-item__link" href={`#${title}`} onClick={onClick}>
         <img src={thumbnail} alt={title} />
         <h2>{title}</h2>
-        <date>{publishedAt}</date>
+        <PublishedDate date={publishedAt} />
         <p>{description}</p>
       </a>
     </li>

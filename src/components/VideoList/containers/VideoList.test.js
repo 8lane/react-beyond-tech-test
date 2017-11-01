@@ -50,11 +50,12 @@ describe('when displaying the video list', () => {
 
 describe('when clicking on a video within the list', () => {
 	let videoListComponent;
-	let evt = { preventDefault: jest.fn() }
+	let evt = { preventDefault: jest.fn() };
+	let onLoadDetailView = jest.fn();
 
 	beforeAll(() => {
 		const items = [{ id: 123, snippet: { title: 'kewl title'} }, { id: 456, snippet: { title: 'title'} }];
-		videoListComponent = shallow(<VideoList />);
+		videoListComponent = shallow(<VideoList onLoadDetailView={onLoadDetailView} />);
 		videoListComponent.instance().handleVideoClick(evt, items[0]);
 	});
 
@@ -62,8 +63,7 @@ describe('when clicking on a video within the list', () => {
 		expect(evt.preventDefault).toHaveBeenCalled();
 	});
 
-	it('should save the new detail view information', () => {
-		expect(videoListComponent.instance().state.detailView.id).toEqual(123);
-		expect(videoListComponent.instance().state.detailView.snippet.title).toEqual('kewl title');
+	it('should change the current view', () => {
+		expect(onLoadDetailView).toHaveBeenCalledWith({ id: 123, snippet: { title: 'kewl title'} })
 	});
 });

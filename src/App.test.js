@@ -2,7 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-// it('renders without crashing', () => {
-//   const div = document.createElement('div');
-//   ReactDOM.render(<App />, div);
-// });
+import Videos from './routes/Videos';
+
+describe('when rendering the app', () => {
+  let appComponent;
+
+  beforeAll(() => {
+    appComponent = shallow(<App />);
+  });
+
+  it('should show a videos view', () => {
+    expect(appComponent.find(Videos).exists()).toBeTruthy();
+  });
+});

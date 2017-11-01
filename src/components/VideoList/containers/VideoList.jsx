@@ -19,9 +19,9 @@ class VideoList extends Component {
     });
   }
 
-  handleVideoClick(evt, detailView) {
+  handleVideoClick(evt, video) {
     evt.preventDefault();
-    this.setState({ detailView });
+    this.props.onLoadDetailView(video);
   }
 
   render() {
