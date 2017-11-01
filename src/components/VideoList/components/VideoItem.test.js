@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 
 import VideoItem from './VideoItem';
 import PublishedDate from '../../PublishedDate/PublishedDate';
+import TruncateText from '../../TruncateText/TruncateText';
 
 describe('when displaying a single video item', () => {
 	let videoItemComponent;
@@ -26,8 +27,10 @@ describe('when displaying a single video item', () => {
 		expect(videoItemComponent.find(PublishedDate).prop('date')).toEqual('30/10/17');
   });
   
-	it('should display a description', () => {
-		expect(videoItemComponent.find('p').text()).toEqual('even better desc');
+	it('should display a truncated description', () => {
+    expect(videoItemComponent.find(TruncateText).exists()).toBeTruthy();
+    expect(videoItemComponent.find(TruncateText).prop('text')).toEqual('even better desc');
+		expect(videoItemComponent.find(TruncateText).prop('maxCharacters')).toEqual(200);
   });
   
 	it('should display a thumbnail', () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PublishedDate from '../../PublishedDate/PublishedDate';
+import TruncateText from '../../TruncateText/TruncateText';
 
 const VideoItem = ({
   title,
@@ -14,8 +15,13 @@ const VideoItem = ({
       <a className="video-item__link" href={`#${title}`} onClick={onClick}>
         <img src={thumbnail} alt={title} />
         <h2>{title}</h2>
+
         <PublishedDate date={publishedAt} />
-        <p>{description}</p>
+
+        <TruncateText
+          text={description}
+          maxCharacters={200}
+        />
       </a>
     </li>
   )
