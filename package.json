@@ -2,7 +2,7 @@
   "name": "react-beyond-code-test",
   "version": "0.1.0",
   "private": false,
-  "homepage" : "http://tctc91.github.io/react-beyond-code-test",
+  "homepage" : "http://tctc91.github.io/beyond-react-test",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -12,7 +12,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "enzyme": "^3.1.0",

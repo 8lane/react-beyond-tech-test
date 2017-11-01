@@ -1,24 +1,24 @@
-#To Do
-##list view
+# To Do
+## list view
     - add page title comp
 
-##detail view
+## detail view
     - update back btn copy
     - add page title comp
     - add published on component to detail view
     - add video iframe
     - add full description
 
-##Style
+## Style
   - add basic styles
   - add basic responsiveness (metatag)
 
-##Readme.md
+## Readme.md
   - setup instructions start/test
   - info about build / future stuff etc
 
 
-#To expand upon in readme:
+# To expand upon in readme:
   - state management library
   - fetch polyfill
   - promise polyfill for < IE10
