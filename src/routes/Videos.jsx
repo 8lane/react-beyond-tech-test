@@ -24,6 +24,15 @@ class Videos extends Component {
     return (
       <main>
         <header>
+          {detailView ?
+            <button
+              className="video-detail__back-btn"
+              onClick={this.handleVideoListLoad}
+            >
+              Back to list of videos
+            </button>
+          : null}
+
           <PageTitle title={!detailView ? 'My YouTube playlist' : detailView.snippet.title} />
         </header>
 
@@ -36,7 +45,6 @@ class Videos extends Component {
             :
             <VideoDetail
               video={detailView}
-              onVideoListReturn={this.handleVideoListLoad}
             />
           }
         </section>

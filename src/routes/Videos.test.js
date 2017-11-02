@@ -55,6 +55,10 @@ describe('when displaying a videos page', () => {
       videosComponent.setState({ detailView: { id: 123, snippet: { title: 'can i haz 2nd stage interview?'} } });
     });
 
+    it('should display a back button', () => {
+      expect(videosComponent.find('button.video-detail__back-btn').text()).toEqual('Back to list of videos');
+    });
+
     it('should have a page title', () => {
       expect(videosComponent.find(PageTitle).prop('title')).toEqual('can i haz 2nd stage interview?');
     });
@@ -107,5 +111,21 @@ describe('when going from video detail view to a video list', () => {
 
   it('should not display a detailed video view', () => {
     expect(videosComponent.find(VideoDetail).exists()).toBeFalsy();
+  });
+});
+
+describe('when clicking the back to video list button', () => {
+  let videosComponent;
+  let onVideoListReturn = jest.fn();
+
+  beforeAll(() => {
+    videosComponent = mount(<Videos />);
+    videosComponent.instance().handleDetailVideoLoad({ id: 123, snippet: { title: 'kewl title'} });
+    videosComponent.update();
+    videosComponent.find('button.video-detail__back-btn').simulate('click');
+  });
+
+  it('should go back', () => {
+    expect(VideoDetail).toHaveLength(0);
   });
 });
