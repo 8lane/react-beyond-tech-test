@@ -3,7 +3,7 @@ react-beyond-tech-test
 
 Simple React SPA that consumes a YouTube API JSON feed and displays a set of results within a playlist. Clicking each video will show a detail view with the ability to play the video.
 
-### Demo available [here](https://tctc91.github.io/beyond-react-test/)
+### Demo available [here](https://tctc91.github.io/react-beyond-tech-test/)
 
 ### Time spent: 4 hours
 
