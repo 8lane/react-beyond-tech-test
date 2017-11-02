@@ -2,7 +2,7 @@
   "name": "react-beyond-code-test",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://tctc91.github.io/beyond-react-test",
+  "homepage": "http://tctc91.github.io/react-beyond-tech-test",
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
