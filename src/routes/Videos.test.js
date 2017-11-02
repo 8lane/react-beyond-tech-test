@@ -120,7 +120,16 @@ describe('when clicking the back to video list button', () => {
 
   beforeAll(() => {
     videosComponent = mount(<Videos />);
-    videosComponent.instance().handleDetailVideoLoad({ id: 123, snippet: { title: 'kewl title'} });
+    videosComponent.instance().handleDetailVideoLoad({
+      id: 123,
+      snippet: {
+        publishedAt: "30/10/17",
+        description: "even better desc",
+        resourceId: {
+          videoId: '22212313asdasd'
+        }
+      }
+    });
     videosComponent.update();
     videosComponent.find('button.video-detail__back-btn').simulate('click');
   });
