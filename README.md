@@ -16,6 +16,8 @@
 ## Readme.md
   - setup instructions start/test
   - info about build / future stuff etc
+  - add demo link
+  - add screenshot
 
 
 # To expand upon in readme:

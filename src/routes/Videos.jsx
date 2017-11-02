@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { VideoList, VideoDetail } from '../components';
+import { VideoList, VideoDetail, PageTitle } from '../components';
 
 import VideoService from '../services/Video';
 
@@ -22,19 +22,25 @@ class Videos extends Component {
     const { items, detailView } = this.state;
 
     return (
-      <section className="videos">
-        {!detailView ?
-          <VideoList
-            items={items}
-            onLoadDetailView={this.handleDetailVideoLoad}
-          />
-          :
-          <VideoDetail
-            video={detailView}
-            onVideoListReturn={this.handleVideoListLoad}
-          />
-        }
-      </section>
+      <main>
+        <header>
+          <PageTitle title={!detailView ? 'My YouTube playlist' : detailView.snippet.title} />
+        </header>
+
+        <section className="videos">
+          {!detailView ?
+            <VideoList
+              items={items}
+              onLoadDetailView={this.handleDetailVideoLoad}
+            />
+            :
+            <VideoDetail
+              video={detailView}
+              onVideoListReturn={this.handleVideoListLoad}
+            />
+          }
+        </section>
+      </main>
     )
   }
 }
